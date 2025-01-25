@@ -26,7 +26,7 @@ urlpatterns = [
     path('',include('main.urls',namespace='main')),
     path('catalog/',include('goods.urls',namespace='catalog')),
 ]
-
+# подключение медиа и статик файлов
 if settings.DEBUG:
     urlpatterns +=[
         path("__debug__/", include("debug_toolbar.urls")),

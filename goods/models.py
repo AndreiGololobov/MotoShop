@@ -39,3 +39,13 @@ class Products(models.Model):
     
     def __str__(self): # для красивого отоброжения привязанного к имнеи
         return f"{self.name} Колличество - {self.quantity}"
+    
+    # метод для генерации ID для товара
+    def display_id(self):
+        return f"{self.id:05}"
+    
+    # метод для скидки. берет основную сумму, смотрит есть ли скидка если нет продаем self.price, если скидак стоит то ставим новую цену.
+    def sell_price(self):
+        if self.discount:
+            return round(self.price - self.price * self.discount/100, 2)
+        return self.price
